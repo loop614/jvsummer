@@ -1,5 +1,17 @@
+.PHONY: run
+
 run:
-	java -jar target/jvsummer-0.1.0.jar
+	mvn exec:java
+
+pack_run:
+	mvn package
+	mvn exec:java
+
+test:
+	mvn test
+
+run_build:
+	java -jar target/jvsummer-0.1.0.jar de
 
 install:
 	mvn install
@@ -9,6 +21,3 @@ package:
 
 compile:
 	mvn compile
-
-test:
-	mvn test

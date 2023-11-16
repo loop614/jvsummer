@@ -1,14 +1,17 @@
 ### Description
-- Java Learning Project with maven
-- Other java experiment repo [javastarter](https://github.com/loop614/javastarter)
+- Parse the words.json and for input 'ab' return all words that "match"
+- Using trie data structure
+
+### ToDos
+- Match also words containing input, not just starting with
 
 ### Requirements
 - maven, make
 
-### Status
-- setup
-
 ### Quick Start
+```console
+$ make pack_run
+```
 ```console
 $ make run
 ```
