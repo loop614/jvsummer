@@ -3,18 +3,18 @@ package jvsummer.domain;
 import jvsummer.domain.suggestion.*;
 
 public class SummerFactory {
-    public SummerSuggestionImpl createSummerSuggestion() {
-        return new SummerSuggestion(
+    public SummerSuggestion createSummerSuggestion() {
+        return new SummerSuggestionImpl(
             this.createSummerWordParser(),
             this.createSummerTrieHandler()
         );
     }
 
-    private SummerWordParserImpl createSummerWordParser() {
-        return new SummerWordParser();
+    private SummerWordParser createSummerWordParser() {
+        return new SummerWordParserImpl();
     }
 
-    private SummerTrieHandlerImpl createSummerTrieHandler() {
-        return new SummerTrieHandler();
+    private SummerTrieHandler createSummerTrieHandler() {
+        return new SummerTrieHandlerImpl();
     }
 }
