@@ -26,9 +26,9 @@ public class SummerTrieHandler implements SummerTrieHandlerImpl {
     public ArrayList<String> getStringsContaining(TrieNodeTransfer node, String input) {
         ArrayList<String> suggestions = new ArrayList<String>();
         this.takeOutSuggestions(
+            input,
             node,
-            new NodeStringBuilderTransfer(),
-            false,
+            new NodeStringBuilderTransfer("", 0, false),
             suggestions
         );
 
@@ -49,29 +49,46 @@ public class SummerTrieHandler implements SummerTrieHandlerImpl {
     }
 
     private void takeOutSuggestions(
+        String input,
         TrieNodeTransfer node,
         NodeStringBuilderTransfer nodeBuilder,
-        boolean wasA,
         ArrayList<String> suggestions
     ) {
         for (TrieNodeTransfer child : node.children) {
             if (child == null) continue;
-            NodeStringBuilderTransfer nodeBuilder2 = new NodeStringBuilderTransfer();
-            nodeBuilder2.builder.append(nodeBuilder.builder.toString());
-            nodeBuilder2.containsAb = nodeBuilder.containsAb;
+            NodeStringBuilderTransfer nodeBuilder2 = this.createNodeStringBuilderTransfer(nodeBuilder);
             nodeBuilder2.builder.append(child.letter);
-            if (child.letter == 'b' && wasA) {
-                nodeBuilder2.containsAb = true;
+            if (child.letter == input.charAt(nodeBuilder2.inputPosition))
+            {
+                if (nodeBuilder2.inputPosition == input.length() - 1) {
+                    nodeBuilder2.containsInput = true;
+                }
+                if (nodeBuilder2.inputPosition < input.length() - 1) {
+                    nodeBuilder2.inputPosition++;
+                }
             }
-            if (child.isEndOfWord && nodeBuilder2.containsAb) {
+            else {
+                nodeBuilder2.inputPosition = 0;
+            }
+
+            if (child.isEndOfWord && nodeBuilder2.containsInput) {
                 suggestions.add(nodeBuilder2.builder.toString());
                 if (child.children.length > 0) {
-                    this.takeOutSuggestions(child, nodeBuilder2, child.letter == 'a', suggestions);
+                    this.takeOutSuggestions(input, child, nodeBuilder2, suggestions);
                 }
                 continue;
             }
 
-            this.takeOutSuggestions(child, nodeBuilder2, child.letter == 'a', suggestions);
+            this.takeOutSuggestions(input, child, nodeBuilder2, suggestions);
         }
+    }
+
+    private NodeStringBuilderTransfer createNodeStringBuilderTransfer(NodeStringBuilderTransfer object)
+    {
+        return new NodeStringBuilderTransfer(
+            object.builder.toString(),
+            object.inputPosition,
+            object.containsInput
+        );
     }
 }
