@@ -12,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
+
 import static org.junit.Assert.assertTrue;
 
 
@@ -25,8 +26,8 @@ public class SummerTest {
 
         ArrayList<String> expected = this.getExpectedWordsFromFile();
         assertTrue(
-             suggestions.size() == expected.size() &&
-             suggestions.containsAll(expected) &&
+    suggestions.size() == expected.size() &&
+            suggestions.containsAll(expected) &&
             expected.containsAll(suggestions)
         );
     }

@@ -8,5 +8,5 @@ public class TrieNodeTransfer
 
     public char letter = '!';
 
-    public boolean isEndOfWord = false;
+    public boolean isEndOfWord;
 }

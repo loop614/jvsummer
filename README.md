@@ -1,9 +1,9 @@
 ### Description
-- Parse the words.json and for input 'ab' return all words that "match"
-- Using trie data structure
+- Parse the words.json and create a trie data structure
+- For input 'ab' return all words that contain ab
 
 ### Status
-- poc on the way
+- poc done
 
 ### Requirements
 - maven, make

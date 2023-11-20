@@ -31,6 +31,6 @@ public class SummerSuggestion implements SummerSuggestionImpl {
             throw new RuntimeException(e);
         }
 
-        return this.summerTrieHandler.getMatchingStrings(root, arg);
+        return this.summerTrieHandler.getStringsContaining(root, arg);
     }
 }
