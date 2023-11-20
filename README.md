@@ -2,8 +2,8 @@
 - Parse the words.json and for input 'ab' return all words that "match"
 - Using trie data structure
 
-### ToDos
-- Match also words containing input, not just starting with
+### Status
+- poc on the way
 
 ### Requirements
 - maven, make
@@ -14,4 +14,7 @@ $ make pack_run
 ```
 ```console
 $ make run
+```
+```console
+$ make test
 ```
