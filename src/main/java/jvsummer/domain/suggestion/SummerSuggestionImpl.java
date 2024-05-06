@@ -19,7 +19,6 @@ public class SummerSuggestionImpl implements SummerSuggestion {
         this.summerTrieHandler = summerTrieHandler;
     }
 
-    @Override
     public ArrayList<String> suggest(String arg) {
         TrieNodeTransfer root = new TrieNodeTransfer();
         JSONArray words = this.summerWordParser.getWords();

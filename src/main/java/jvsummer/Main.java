@@ -13,8 +13,8 @@ public class Main {
 
         SummerFactory summerFactory = new SummerFactory();
         ArrayList<String> suggestions = summerFactory
-                .createSummerSuggestion()
-                .suggest(args[0]);
+            .createSummerSuggestion()
+            .suggest(args[0]);
 
         System.out.println(suggestions.toString());
     }

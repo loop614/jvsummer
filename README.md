@@ -1,20 +1,17 @@
 ### Description
-- Parse the words.json and create a trie data structure
+- Parse the words.json and create a [trie](https://en.wikipedia.org/wiki/Trie) data structure
 - For input 'ab' return all words that contain ab
 
 ### Status
 - poc done
 
 ### Requirements
-- maven, make
+- maven
 
 ### Quick Start
 ```console
-$ make pack_run
+$ mvn exec:java
 ```
 ```console
-$ make run
-```
-```console
-$ make test
+$ mvn test
 ```

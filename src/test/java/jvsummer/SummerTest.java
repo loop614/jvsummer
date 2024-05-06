@@ -26,7 +26,7 @@ public class SummerTest {
 
         ArrayList<String> expected = this.getExpectedWordsFromFile();
         assertTrue(
-    suggestions.size() == expected.size() &&
+            suggestions.size() == expected.size() &&
             suggestions.containsAll(expected) &&
             expected.containsAll(suggestions)
         );

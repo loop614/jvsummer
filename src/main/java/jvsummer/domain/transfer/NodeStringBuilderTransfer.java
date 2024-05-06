@@ -5,7 +5,6 @@ public class NodeStringBuilderTransfer {
     public boolean containsInput;
     public int inputPosition;
 
-
     public NodeStringBuilderTransfer(
         String builder,
         int inputPosition,

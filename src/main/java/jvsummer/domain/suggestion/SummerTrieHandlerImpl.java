@@ -58,16 +58,14 @@ public class SummerTrieHandlerImpl implements SummerTrieHandler {
             if (child == null) continue;
             NodeStringBuilderTransfer nodeBuilder2 = this.createNodeStringBuilderTransfer(nodeBuilder);
             nodeBuilder2.builder.append(child.letter);
-            if (child.letter == input.charAt(nodeBuilder2.inputPosition))
-            {
+            if (child.letter == input.charAt(nodeBuilder2.inputPosition)) {
                 if (nodeBuilder2.inputPosition == input.length() - 1) {
                     nodeBuilder2.containsInput = true;
                 }
                 if (nodeBuilder2.inputPosition < input.length() - 1) {
                     nodeBuilder2.inputPosition++;
                 }
-            }
-            else {
+            } else {
                 nodeBuilder2.inputPosition = 0;
             }
 
@@ -83,8 +81,7 @@ public class SummerTrieHandlerImpl implements SummerTrieHandler {
         }
     }
 
-    private NodeStringBuilderTransfer createNodeStringBuilderTransfer(NodeStringBuilderTransfer object)
-    {
+    private NodeStringBuilderTransfer createNodeStringBuilderTransfer(NodeStringBuilderTransfer object) {
         return new NodeStringBuilderTransfer(
             object.builder.toString(),
             object.inputPosition,
